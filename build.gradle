@@ -1,0 +1,21 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+repositories {
+	mavenCentral()
+	maven {
+		url = "http://maven.shadowfacts.net"
+	}
+}
+
+dependencies {
+	compile group: "baymaxirc", name: "BaymaxCore", version: "1.1.0.2"
+}
+
+jar {
+	manifest {
+		attributes	'Implementation-Title': archivesBaseName,
+					'Implementation-Version': version
+	}
+}
