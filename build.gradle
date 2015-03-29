@@ -1,4 +1,5 @@
 apply plugin: 'java'
+apply plugin: 'maven'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 
@@ -17,5 +18,15 @@ jar {
 	manifest {
 		attributes	'Implementation-Title': archivesBaseName,
 					'Implementation-Version': version
+	}
+}
+
+artifacts {
+	archives jar
+}
+
+uploadArchives {
+	repositories.mavenDeployer {
+		repository(url: "file:///maven/")
 	}
 }
